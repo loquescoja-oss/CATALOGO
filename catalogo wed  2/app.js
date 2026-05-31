@@ -1,6 +1,6 @@
 // -------- CONFIGURATION --------
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbx20ZnNP98AaZageJqz_oOCNtBjXZg7OzouKtQNKAQeP-hk0k-hmTLC758hY2cCNyor/exec";
-const ADMIN_PASS = "1234";
+const ADMIN_PASS = "94377155";
 const BUSINESS_PHONE = "+58-4149262763"; // format without +
 
 // -------- STATE --------
