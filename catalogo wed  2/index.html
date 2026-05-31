@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Premium</title>
+    <meta name="description" content="Colección exclusiva. Diseño y calidad superior.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar glass" id="navbar">
+        <div class="nav-container">
+            <button id="mobileMenuBtn" class="icon-btn mobile-only">☰</button>
+            
+            <a href="#" class="logo">
+                <img src="assets/logo_empresa.png" alt="Logo Empresa" class="logo-img" onerror="this.src=''; this.alt='LOGO EMPRESA';">
+            </a>
+
+            <nav class="desktop-nav desktop-only">
+                <a href="#inicio" class="nav-link">Inicio</a>
+                <a href="#catalogo" class="nav-link">Catálogo</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="cartBtn" class="icon-btn pr-relative">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <span id="cartCount" class="badge">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="mobile-drawer">
+        <div class="drawer-header">
+            <h3>Menú</h3>
+            <button id="closeMobileDrawer" class="icon-btn">✕</button>
+        </div>
+        <nav class="drawer-nav">
+            <a href="#inicio" class="drawer-link">Inicio</a>
+            <a href="#catalogo" class="drawer-link">Catálogo</a>
+            <a href="#contacto" class="drawer-link">Contacto</a>
+        </nav>
+        <div class="drawer-footer">
+            <p>Categorías</p>
+            <div id="mobileCategories" class="mobile-categories-list">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+    <div id="mobileOverlay" class="overlay"></div>
+
+    <!-- Hero -->
+    <section id="inicio" class="hero">
+        <img src="assets/hero_bg.png" alt="Brilho Joyas" class="hero-image">
+        
+        <div class="hero-content">
+            <h1>Colección Exclusiva</h1>
+            <p>Descubre nuestra línea de productos diseñados con el más alto estándar de calidad y elegancia atemporal.</p>
+            <a href="#catalogo" class="btn btn-primary" style="box-shadow: 0 4px 20px rgba(212,175,55, 0.3);">Explorar Colección</a>
+        </div>
+    </section>
+
+    <!-- Categories Ribbon -->
+    <div class="categories-bar glass-light" id="catalogo">
+        <div class="categories-container" id="categoryRibbon">
+            <button class="cat-btn active" onclick="filterBy('all')">Todos</button>
+            <!-- Injected via JS -->
+        </div>
+    </div>
+
+    <!-- Products Grid -->
+    <main class="main-container">
+        <div id="productGrid" class="product-grid">
+            <!-- Products injected via JS -->
+            <div style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--gray-400);">
+                Procesando base de datos...
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contacto" class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3 style="font-size: 1.4rem; letter-spacing: 3px; color: #d4af37; margin-bottom: 0.5rem;">BRILHO JOYAS</h3>
+                <p>La referencia definitiva en elegancia y calidad superior.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces</h4>
+                <a href="#inicio">Inicio</a>
+                <a href="#catalogo">Catálogo</a>
+                <button id="adminLoginBtn" class="text-btn" style="text-align: left; padding: 0.5rem 0; color: var(--gray-500); cursor: pointer;">Acceso Administrador</button>
+            </div>
+            <div class="footer-links">
+                <h4>Contacto</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem; line-height: 1.4;">
+                    <strong>📍 Dirección:</strong><br>
+                    Av. Francisco de Miranda, Edif. Parque Cristal.<br>
+                    Caracas, Venezuela
+                </p>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    <strong>📱 WhatsApp:</strong><br>
+                    +58 424-1729217
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Catálogo Premium. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Mi Carrito</h2>
+            <button id="closeCartBtn" class="icon-btn">✕</button>
+        </div>
+        <div id="cartItems" class="cart-items">
+            <!-- Items injected by JS -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal" class="total-amount">$0</span>
+            </div>
+            <button id="checkoutBtn" class="btn btn-primary w-full">Finalizar Pedido 💬</button>
+        </div>
+    </div>
+    <div id="cartOverlay" class="overlay"></div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content glass">
+            <h2>Tus Datos de Envío</h2>
+            <p class="modal-subtitle">Completaremos este pedido a través de WhatsApp</p>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label>Nombre y Apellido</label>
+                    <input type="text" id="custName" required class="input-base" placeholder="Ej. Juan Pérez">
+                </div>
+                <div class="form-group">
+                    <label>Teléfono / WhatsApp</label>
+                    <input type="tel" id="custPhone" required class="input-base" placeholder="Ej. +58 412 1234567">
+                </div>
+                <div class="form-group">
+                    <label>Cédula o RIF</label>
+                    <input type="text" id="custId" required class="input-base" placeholder="Ej. V-12345678">
+                </div>
+                <div class="form-group">
+                    <label>Agencia de Envío / Transporte</label>
+                    <input type="text" id="custTransport" required class="input-base" placeholder="Ej. Zoom, Domesa, Tealca...">
+                </div>
+                <div class="form-group">
+                    <label>Dirección de Entrega</label>
+                    <textarea id="custAddr" required class="input-base resize-none" rows="3" placeholder="Detalla tu dirección aquí..."></textarea>
+                </div>
+                <div class="modal-actions" style="flex-direction: column; gap: 0.8rem;">
+                    <div style="display: flex; gap: 0.7rem;">
+                        <button type="button" id="cancelCheckout" class="btn btn-outline" style="flex:1">Cancelar</button>
+                        <button type="button" id="downloadTicketBtn" class="btn btn-outline" style="flex:1; font-size:0.85rem;">📄 Ticket PDF</button>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full">💬 Enviar por WhatsApp</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="modalOverlayCheckout" class="overlay-modal"></div>
+
+    <!-- Admin Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content glass text-center" style="max-width: 350px;">
+            <h2>Panel Admin</h2>
+            <p class="modal-subtitle mb-4">Ingresa tu contraseña</p>
+            <input type="password" id="adminPassInput" class="input-base text-center mb-4" placeholder="••••">
+            <div class="modal-actions">
+                <button id="cancelLogin" class="btn btn-outline w-full">Cancelar</button>
+                <button id="confirmLogin" class="btn btn-primary w-full">Entrar</button>
+            </div>
+        </div>
+    </div>
+    <div id="modalOverlayLogin" class="overlay-modal"></div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="modal admin-modal">
+        <div class="modal-content glass admin-content">
+            <div class="admin-header">
+                <h2>Gestión de Catálogo</h2>
+                <button id="closeAdminBtn" class="icon-btn">✕</button>
+            </div>
+            
+            <div class="admin-grid">
+                <!-- Add Product Form -->
+                <div class="admin-form-section">
+                    <h3>Nuevo Producto</h3>
+                    <form id="productForm" class="add-product-form">
+                        <input type="text" id="pName" placeholder="Nombre de Producto" required class="input-base">
+                        <input type="text" id="pRef" placeholder="Código / Referencia" required class="input-base">
+                        <input type="number" id="pPrice" placeholder="Precio ($)" required class="input-base" step="any">
+                        
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" id="pDept" placeholder="Departamento" required class="input-base">
+                            <input type="text" id="pCategory" placeholder="Categoría" required class="input-base">
+                        </div>
+                        
+                        <div class="file-upload">
+                            <label>Fotografía del Producto</label>
+                            <input type="file" id="pFile" accept="image/*" class="input-base" required>
+                            <small style="color: var(--gray-400); font-size: 0.8rem;">La imagen se optimizará automáticamente</small>
+                        </div>
+
+                        <textarea id="pDesc" placeholder="Descripción (Opcional)" class="input-base resize-none" rows="2"></textarea>
+                        
+                        <div id="adminStatus" class="admin-status"></div>
+                        <button type="submit" id="saveProductBtn" class="btn btn-primary w-full">Guardar Producto</button>
+                    </form>
+                </div>
+                
+                <!-- Product List for Admin -->
+                <div class="admin-list-section">
+                    <h3>Productos Activos</h3>
+                    <div id="adminProductGrid" class="admin-products-list">
+                        <!-- Listed via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalOverlayAdmin" class="overlay-modal"></div>
+
+    <!-- Image Zoom Modal -->
+    <div id="imageZoomModal" class="modal" style="width: 100%; max-width: 95vw; height: 100%; background: transparent; box-shadow: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <button onclick="toggleImageZoom(false)" class="icon-btn" style="position: absolute; top: -10px; right: 0; z-index: 10; color: white; background: rgba(0,0,0,0.5); margin-bottom: 10px;">✕</button>
+        <img id="zoomedImage" src="" style="width: 100%; height: 85vh; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.8);">
+    </div>
+    <div id="overlayImageZoom" class="overlay-modal" onclick="toggleImageZoom(false)" style="background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);"></div>
+
+    <script>
+        // Anti-Cache system: forces the browser to always download the latest app.js version when online
+        const script = document.createElement('script');
+        script.src = window.location.protocol === 'file:' ? 'app.js' : 'app.js?v=' + Date.now();
+        document.body.appendChild(script);
+    </script>
+</body>
+</html>
